@@ -176,6 +176,28 @@ def prepare_df(train_df, test_df):
     return train_df, test_df
     
 
+train_df, test_df = load_csv()
+dtrain, dtest = prepare_df(train_df, test_df)
+
+xgb = XGBClassifier(
+ learning_rate =0.1,
+ n_estimators=100,
+ num_class=4,
+ max_depth=4,
+ min_child_weight=2,
+ gamma=0,
+ subsample=0.7,
+ colsample_bytree=0.6,
+ objective= 'multi:softmax',
+ nthread=4,
+ scale_pos_weight=1,
+ reg_alpha=0.2,
+ reg_lambda=1e-05,
+ seed=1337)
+
+model = train_model(xgb3, dtrain)
+
+generate_submission(model, dtest)
 
 
 
