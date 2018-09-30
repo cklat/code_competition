@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[4]:
+
 
 import numpy as np
 import pandas as pd
@@ -16,6 +18,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
+# In[5]:
 
 
 #load data
@@ -25,6 +28,8 @@ def load_csv():
     
     return train_df, test_df
 
+
+# In[9]:
 
 
 # collective Function for renaming Columns and Feature values of the datasetto ensure naming consistency
@@ -40,6 +45,8 @@ def rename_data(df):
     return renamed_df
     
 
+
+# In[10]:
 
 
 # function to collectively filter rows that seem to be unimportant according to the EDA notebook
@@ -60,6 +67,7 @@ def clear_rows(df):
     return cleared_df
 
 
+# In[11]:
 
 
 # Function to process and convert the date representations in the dataset and perform one-hot-encoding
@@ -89,6 +97,8 @@ def process_date(df, use_day=False):
     
     return dateconverted_df
 
+
+# In[12]:
 
 
 #Process the time feature and perform one-hot-encoding to make it usable for the algorithm
@@ -120,6 +130,8 @@ def process_time(df):
                                                          
 
 
+# In[13]:
+
 
 ONE_HOT_COLS = ["Strassenklasse", "Unfallklasse", "Lichtverhältnisse", "Bodenbeschaffenheit", "Geschlecht", 
                "Fahrzeugtyp", "Wetterlage"]
@@ -132,7 +144,9 @@ def one_hot_encoder(df):
     return df 
 
 
-#Function to train a model on the training dataset
+# In[14]:
+
+
 def train_model(model, train_df):
     
     features = [f for f in train_df.columns if f not in ["Unfallschwere"]]
@@ -142,7 +156,9 @@ def train_model(model, train_df):
     return model
 
 
-#Function to generate the submission file
+# In[30]:
+
+
 def generate_submission(model, test_df):
     
     #Predict test set:
@@ -152,11 +168,14 @@ def generate_submission(model, test_df):
     #test_predprob = alg.predict_proba(test_df[features])[:,1]
     
     test_predictions = pd.DataFrame(test_predictions).reset_index()
+    test_predictions["index"] +=15221
     
     test_predictions.to_csv(path_or_buf="../submission.csv", header=["Unfall_ID", "Unfallschwere"], index=False)
 
 
-#Function to prepare the datasets with the necessary pre-processing steps. 
+# In[7]:
+
+
 def prepare_df(train_df, test_df):
     
     train_df = clear_rows(train_df)
@@ -176,6 +195,11 @@ def prepare_df(train_df, test_df):
     return train_df, test_df
     
 
+
+# In[31]:
+
+
+#if __name__ == "__main__":
 train_df, test_df = load_csv()
 dtrain, dtest = prepare_df(train_df, test_df)
 
@@ -195,9 +219,11 @@ xgb = XGBClassifier(
  reg_lambda=1e-05,
  seed=1337)
 
-model = train_model(xgb, dtrain)
-
+model = train_model(xgb3, dtrain)
 generate_submission(model, dtest)
+
+
+# In[ ]:
 
 
 
