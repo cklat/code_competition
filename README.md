@@ -64,7 +64,7 @@ The following aspects were considered for training:
 
 2. (optional) For execution of the EDA notebook file, please start a jupyter notebook server on your local machine and execute each cell beginning from the top.
 
-3. For generating the submission file from the *model.py* file, run `python model.py`
+3. For generating the submission file from the *main.py* file, run `python main.py`
 
 4. (optional) For execution of the Parameting Tuning notebook, please also start a jupyter notebook server on your local machine and, again, execute each cell beginning from the top (Note: Takes probably some hours)
 
