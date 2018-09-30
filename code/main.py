@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
 
 import numpy as np
 import pandas as pd
@@ -18,7 +16,6 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
-# In[2]:
 
 
 #load data
@@ -28,8 +25,6 @@ def load_csv():
     
     return train_df, test_df
 
-
-# In[3]:
 
 
 # collective Function for renaming Columns and Feature values of the datasetto ensure naming consistency
@@ -45,8 +40,6 @@ def rename_data(df):
     return renamed_df
     
 
-
-# In[4]:
 
 
 # function to collectively filter rows that seem to be unimportant according to the EDA notebook
@@ -67,7 +60,6 @@ def clear_rows(df):
     return cleared_df
 
 
-# In[5]:
 
 
 # Function to process and convert the date representations in the dataset and perform one-hot-encoding
@@ -97,8 +89,6 @@ def process_date(df, use_day=False):
     
     return dateconverted_df
 
-
-# In[6]:
 
 
 #Process the time feature and perform one-hot-encoding to make it usable for the algorithm
@@ -130,8 +120,6 @@ def process_time(df):
                                                          
 
 
-# In[7]:
-
 
 ONE_HOT_COLS = ["Strassenklasse", "Unfallklasse", "Lichtverhältnisse", "Bodenbeschaffenheit", "Geschlecht", 
                "Fahrzeugtyp", "Wetterlage"]
@@ -144,9 +132,7 @@ def one_hot_encoder(df):
     return df 
 
 
-# In[16]:
-
-
+#Function to train a model on the training dataset
 def train_model(model, train_df):
     
     features = [f for f in train_df.columns if f not in ["Unfallschwere"]]
@@ -156,9 +142,7 @@ def train_model(model, train_df):
     return model
 
 
-# In[26]:
-
-
+#Function to generate the submission file
 def generate_submission(model, test_df):
     
     #Predict test set:
@@ -172,9 +156,7 @@ def generate_submission(model, test_df):
     test_predictions.to_csv(path_or_buf="../submission.csv", header=["Unfall_ID", "Unfallschwere"], index=False)
 
 
-# In[10]:
-
-
+#Function to prepare the datasets with the necessary pre-processing steps. 
 def prepare_df(train_df, test_df):
     
     train_df = clear_rows(train_df)
@@ -194,8 +176,6 @@ def prepare_df(train_df, test_df):
     return train_df, test_df
     
 
-
-# In[ ]:
 
 
 
