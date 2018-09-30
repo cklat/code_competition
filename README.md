@@ -14,6 +14,10 @@ The content of this repository is structured as the following:
 
 - ##### ./code/EDA.ipynb: This is a jupyter notebook prepared to do an exploratory analysis of the provided data. This notebook is intended for getting familiar with the data, detecting inconsistencies, check for missing values and maybe even acquire some insights for the Feature-Engineering process 
 
+- ##### ./code/main.py: Python script for preparing the data, training the model and generating the submission file with the best fitted model
+
+- ##### ./code/param_tunin.ipynb: This is a jupyter notebook prepared to the parameter tuning for the chosen Classifier model.
+
 # General Approach
 
 The data was fairly small and to some extent well documented. There were not missing values in either of the features, other than categorical values indicating that the exact value for a certain feature was unknown for a particular accident.
