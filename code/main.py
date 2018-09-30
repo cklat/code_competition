@@ -195,7 +195,7 @@ xgb = XGBClassifier(
  reg_lambda=1e-05,
  seed=1337)
 
-model = train_model(xgb3, dtrain)
+model = train_model(xgb, dtrain)
 
 generate_submission(model, dtest)
 
