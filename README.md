@@ -47,7 +47,7 @@ The following aspects were considered for training:
 
 - As the dataset was heavily imbalanced, it is hard to predict the '2' and '3' cases of the accident severity. There are probably ways to handle this scenario (perhaps generating synthetic data) but I wasn't able to look into that. However, we can set a naive benchmark for the model and the training dataset which is simply predicting the class '1' for the accident severity.
 
-  This gives us a **Baseline** of roughly **88,65% accuracy**. **After Parameter Tuning**: **92,19%**
+  This gives us a **Baseline** of roughly **88,65% accuracy**. **After Parameter Tuning**: **89,12%**
 
 
 
