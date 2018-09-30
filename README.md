@@ -28,11 +28,11 @@ Regarding these underlying project and data conditions, I went for a light-weigh
 
 ## Pre-Processing/Feature-Engineering
 
-Since I wasn't able to contribute so much time into this code competition, my pre-processing and feature-engineering step was reduced to the very essential steps. This became a step for cleaning up the raw data for the training phase rather than generating new and predictive features. Basically my contributions at this point can be summed up as the following:
+Since I wasn't able to contribute so much time into this code competition, my pre-processing and feature-engineering step was reduced to the very essential steps. This became a step for cleaning up the raw data for the training phase rather than generating new, predictive features. Basically my contributions at this point can be summed up as the following:
 
 - Delete/Rename Columns/Rows according to the findings in the EDA notebook
 
-- Convert the provided date and time columns to a consent representation (see also the EDA notebook). Since the recorded weren't fully documented for a few rows (the year was missing), I reduced the date representation to a month and day representation, thus dropping the year information if given. If this wasn't the case and every row had the year documented, further (external) data could be introduced into the dataset. E.g. precise weather or calendar data.
+- Convert the provided date and time columns to a consistent representation (see also the EDA notebook). Since the recorded weren't fully documented for a few rows (the year was missing), I reduced the date representation to a month and day representation, thus dropping the year information if given. If this wasn't the case and every row had the year documented, further (external) data could be introduced into the dataset. E.g. precise weather or calendar data.
 
   For the time column, I made the strict assumption that the exact time of the accidents weren't necessary, thus I dropped     the minute information of the time column. However, I haven't tested the impact on the performance if minutes were kept as   information for the classifier.
 
