@@ -64,7 +64,7 @@ The following aspects were considered for training:
 
 ### Dependencies:
 
-Required:
+Required (for Python 3.6.5):
   - xgboost (0.8.0)
   - numpy (1.15.1)
   - pandas (0.23.4)
