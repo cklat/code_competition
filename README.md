@@ -1,5 +1,3 @@
-**_Note to the Code Competition Staff_: By the end of the deadline, I had the submission file with the wrong indexing starting from 0. I corrected my code only at the places where the submission file is generated and included the corrected submission. This was roughly 10 minutes after the deadline. If this is an issue, no problem. Feel free, to use the solution anyway**
-
 # IT-Talents Code Competition
 
 This is my solution for September's 2018 code competition of IT-Talents.de
